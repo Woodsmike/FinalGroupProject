@@ -1,0 +1,26 @@
+﻿@model ExerciseGO.Models.Emoji
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Emoji</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmojiName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmojiName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmojiID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,495 @@
+﻿/*default*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*maps*/
+#map {
+    margin-top: 5%;
+    height: 550px;
+}
+
+/*landing page main picture*/
+.parallax {
+    background-image: url('Image/rsz_1backgroundpicture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 550px;
+    text-align: center;
+}
+
+/*divider bar from main picture and grids*/
+#divider {
+    text-align: center;
+    background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: slategray;
+    box-shadow: 2px 2px 2px gray;
+    /*max-width: 1388.36px;*/
+    margin: 0px;
+}
+
+.dividerShadow {
+    border: solid;
+    border-color: #ffffff;
+    background-color: lightgray;
+    box-shadow: 0 2px 0 2px #323F48;
+    margin-top: 0px;
+    border-top: 0px;
+}
+/*login page*/
+#loginPage {
+    background-image: url('Image/bigstock-collage-of-sport-photos-with-p-150968885.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 91%;
+}
+
+/*navbar!!*/
+
+.navbar-brand {
+    text-align: justify;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+}
+
+.navbar-nav.navbar-right .btn {
+    position: relative;
+    z-index: 2;
+    padding: 4px 20px;
+    margin: 10px auto;
+}
+
+.navbar .navbar-collapse {
+    position: relative;
+}
+
+    .navbar .navbar-collapse .navbar-right > li:last-child {
+        padding-left: 22px;
+    }
+
+.navbar .nav-collapse {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding-right: 120px;
+    padding-left: 80px;
+    width: 100%;
+}
+
+.navbar.navbar-default .nav-collapse {
+    background-color: #f8f8f8;
+}
+
+.navbar.navbar-inverse .nav-collapse {
+    background-color: #222;
+}
+
+.navbar .nav-collapse .navbar-form {
+    border-width: 0;
+    box-shadow: none;
+}
+
+.nav-collapse > li {
+    float: right;
+}
+
+.btn.btn-circle {
+    border-radius: 50px;
+}
+
+.btn.btn-outline {
+    background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar .nav-collapse {
+        margin: 7.5px auto;
+        padding: 0;
+    }
+
+        .navbar .nav-collapse .navbar-form {
+            margin: 0;
+        }
+
+    .nav-collapse > li {
+        float: none;
+    }
+}
+
+/*login page*/
+/*=== 1. General Structure ===*/
+html,
+body {
+    background: #efefef;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: #aaaaaa;
+    transition: all ease-in-out 200ms;
+}
+
+    a:hover {
+        color: #333333;
+        text-decoration: none;
+    }
+
+/*=== 9. Misc ===*/
+.logo {
+    padding: 15px 0;
+    font-size: 25px;
+    color: #aaaaaa;
+    font-weight: bold;
+    background-image: url('Image/Minimized Logo.png');
+    cursor: pointer;
+}
+
+/*used to close target area divs*/
+.arrow {
+    float: right;
+    color: white;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background-color: #605F61;
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 8px 3px;
+    text-decoration: none;
+}
+
+    .arrow:before {
+        content: "x";
+    }
+
+#socialLoginList {
+    text-align: center;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#Facebook {
+    display: inline-block;
+    background: #8B9DC3;
+    color: #ffffff;
+    width: 190px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    margin-top: 12px;
+}
+
+    #Facebook:hover {
+        cursor: pointer;
+        background: #4267B2;
+    }
+
+span.label {
+    font-family: serif;
+    font-weight: normal;
+}
+
+span.icon {
+    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 42px;
+    padding-right: 42px;
+    font-size: 14px;
+}
+
+#Google {
+    display: inline-block;
+    background: #EA4335;
+    color: #ffffff;
+    width: 190px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+}
+
+    #Google:hover {
+        cursor: pointer;
+        background: #FF0000;
+    }
+
+span.label {
+    font-family: serif;
+    font-weight: normal;
+}
+
+span.icon {
+    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 42px;
+    padding-right: 42px;
+    font-size: 14px;
+}
+
+#loginPage > div.box {
+    width: 615px;
+    height: 300px;
+    margin: auto;
+    margin-top: 10%;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+div.form-group {
+    text-align: left;
+}
+
+#loginButton {
+    display: inline-block;
+    background: #E2E0E1;
+    color: #ffffff;
+    width: 80px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px darkgray;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    #loginButton:hover {
+        cursor: pointer;
+        background: #7F7D76;
+    }
+
+span.label {
+    font-family: serif;
+    font-weight: normal;
+}
+
+span.icon {
+    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+
+#loginButton:hover {
+    cursor: pointer;
+}
+
+.etc-login-form {
+    margin-left: 1px;
+}
+
+#heading {
+    padding: 10px;
+}
+
+#text {
+    position: absolute;
+    left: 50px;
+    top: 175px;
+    width: 70%;
+    color: white;
+    text-align: center;
+    font-size: 35px;
+    /*opacity:.7;*/
+}
+
+#textPic {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    color: black;
+    text-align: center;
+    font-size: 35px;
+    /*opacity:.7;*/
+}
+/*Home page divs hidden shown*/
+.popUpDiv {
+    border: solid 0.5px;
+    border-color: black;
+    background-color: white;
+    box-shadow: 2px 2px 2px darkgray;
+    /*background: gray; 
+    background: -webkit-linear-gradient(left, white, gray); 
+    background: -o-linear-gradient(right, white, gray); 
+    background: -moz-linear-gradient(right, white, gray); 
+    background: linear-gradient(to right, white, gray); */
+    opacity: .8;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.divGrid {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 390px;
+    border: thin;
+    border-color: azure;
+    margin: .25px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+#legs {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#arms {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#abs {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#chest {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#back {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#cardio {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+
+.picPad {
+    margin: 20px;
+    margin-left: 0;
+    max-height: 228.61px;
+    
+}
+
+    .picPad:hover {
+        opacity: 0.7;
+    }
+
+.picBorder {
+    border: solid;
+    border-color: black;
+}
+.picOpacity:hover {
+    opacity: 0.8;
+}
+.topBtnPos {
+    margin-top: 90px;
+    padding-left: 50px;
+}
+
+.bottomBtnPos {
+    margin-top: 20px;
+    padding-left: 50px;
+}
+
+.btnColor {
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+    .btnColor:hover {
+        cursor: pointer;
+        background-color: #20e278;
+    }
+
+    .btnColor:focus {
+        outline: 0;
+    }
+
+/*Activity log page hide show*/
+#armsActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#chestActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#absActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#backActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#legsActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#cardioActivity {
+    display: none;
+    box-shadow: 1px 1px 1px darkgray;
+}
+
+#post {
+    margin-left: 40px;
+    background-color: #F9F4C2;
+    border: none;
+    box-shadow: 1px 1px 1px #DDDDDD;
+}
+/*UPPERCASE ids of Arms, Legs, etc. is for the Activity log page....lowercase for home page*/

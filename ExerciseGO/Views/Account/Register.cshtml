@@ -1,0 +1,51 @@
+﻿@using ExerciseGO.Models
+@model RegisterViewModel
+
+<div class="text-center" id="loginPage">
+    <div class="logo"></div>
+    <!-- Main Form -->
+    <div class="box">
+        <h1>Register or <a href="/Account/Login">Login</a></h1>
+        <div class="row">
+            <hr style="margin-top:0px;" />
+            <div class="col-md-6 col-md-offset-1">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm password" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3" >
+                                <input type="submit" class="btn btn-default" id="loginButton" value="Register" />
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+
+            <div class="col-md-4">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

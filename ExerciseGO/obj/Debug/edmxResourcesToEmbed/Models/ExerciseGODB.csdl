@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExerciseGOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Emoji">
+    <Key>
+      <PropertyRef Name="EmojiID" />
+    </Key>
+    <Property Name="EmojiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmojiName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Games" Relationship="ExerciseGOModel.FK_Game_Emoji1" FromRole="Emoji" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="GameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsSocial" Type="Boolean" />
+    <Property Name="LevelID" Type="Int32" Nullable="false" />
+    <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Stage" Relationship="Self.FK_Game_Stage" FromRole="Game" ToRole="Stage" />
+    <NavigationProperty Name="AspNetUser" Relationship="ExerciseGOModel.FK_Game_AspNetUsers" FromRole="Game" ToRole="AspNetUser" />
+    <Property Name="EmojiID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Emoji" Relationship="ExerciseGOModel.FK_Game_Emoji1" FromRole="Game" ToRole="Emoji" />
+  </EntityType>
+  <EntityType Name="Stage">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LevelName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Games" Relationship="Self.FK_Game_Stage" FromRole="Stage" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="TargetArea">
+    <Key>
+      <PropertyRef Name="TargetAreaID" />
+    </Key>
+    <Property Name="TargetAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TargetAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ActivityLogs" Relationship="ExerciseGOModel.FK_ActivityLog_TargetArea" FromRole="TargetArea" ToRole="ActivityLog" />
+    <NavigationProperty Name="Videos" Relationship="ExerciseGOModel.FK_Video_TargetArea" FromRole="TargetArea" ToRole="Video" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoID" />
+    </Key>
+    <Property Name="VideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VideoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsWatch" Type="Boolean" Nullable="false" />
+    <Property Name="IsBonus" Type="Boolean" Nullable="false" />
+    <Property Name="TargetAreaID" Type="Int32" Nullable="false" />
+    <Property Name="VideoStart" Type="Int32" Nullable="false" />
+    <Property Name="VideoEnd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TargetArea" Relationship="ExerciseGOModel.FK_Video_TargetArea" FromRole="Video" ToRole="TargetArea" />
+    <Property Name="VideoLink" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="ActivityLogID" />
+    </Key>
+    <Property Name="ActivityLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="TotalReps" Type="Int32" />
+    <Property Name="TotalSets" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="ExerciseGOModel.FK_ActivityLog_AspNetUsers" FromRole="ActivityLog" ToRole="AspNetUser" />
+    <Property Name="TargetAreaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TargetArea" Relationship="ExerciseGOModel.FK_ActivityLog_TargetArea" FromRole="ActivityLog" ToRole="TargetArea" />
+  </EntityType>
+  <Association Name="FK_Game_Stage">
+    <End Role="Stage" Type="Self.Stage" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stage">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExerciseGOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Emojis" EntityType="Self.Emoji" />
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="Stages" EntityType="Self.Stage" />
+    <EntitySet Name="TargetAreas" EntityType="Self.TargetArea" />
+    <EntitySet Name="Videos" EntityType="Self.Video" />
+    <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
+    <AssociationSet Name="FK_Game_Stage" Association="Self.FK_Game_Stage">
+      <End Role="Stage" EntitySet="Stages" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <EntitySet Name="AspNetRoles" EntityType="ExerciseGOModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="ExerciseGOModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="ExerciseGOModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="ExerciseGOModel.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ExerciseGOModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ExerciseGOModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="ExerciseGOModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityLog_AspNetUsers" Association="ExerciseGOModel.FK_ActivityLog_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="ActivityLog" EntitySet="ActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_AspNetUsers" Association="ExerciseGOModel.FK_Game_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Emoji1" Association="ExerciseGOModel.FK_Game_Emoji1">
+      <End Role="Emoji" EntitySet="Emojis" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActivityLog_TargetArea" Association="ExerciseGOModel.FK_ActivityLog_TargetArea">
+      <End Role="TargetArea" EntitySet="TargetAreas" />
+      <End Role="ActivityLog" EntitySet="ActivityLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_TargetArea" Association="ExerciseGOModel.FK_Video_TargetArea">
+      <End Role="TargetArea" EntitySet="TargetAreas" />
+      <End Role="Video" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ExerciseGOModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="ExerciseGOModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="ExerciseGOModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="ExerciseGOModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="ExerciseGOModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="ExerciseGOModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="ActivityLogs" Relationship="ExerciseGOModel.FK_ActivityLog_AspNetUsers" FromRole="AspNetUser" ToRole="ActivityLog" />
+    <NavigationProperty Name="Games" Relationship="ExerciseGOModel.FK_Game_AspNetUsers" FromRole="AspNetUser" ToRole="Game" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="ExerciseGOModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ExerciseGOModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="ExerciseGOModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ExerciseGOModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="ExerciseGOModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="ExerciseGOModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_ActivityLog_AspNetUsers">
+    <End Type="ExerciseGOModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="ExerciseGOModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityLog">
+        <PropertyRef Name="AspNetUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_AspNetUsers">
+    <End Type="ExerciseGOModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="ExerciseGOModel.Game" Role="Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="AspNetUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Emoji1">
+    <End Type="ExerciseGOModel.Emoji" Role="Emoji" Multiplicity="1" />
+    <End Type="ExerciseGOModel.Game" Role="Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emoji">
+        <PropertyRef Name="EmojiID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="EmojiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActivityLog_TargetArea">
+    <End Type="ExerciseGOModel.TargetArea" Role="TargetArea" Multiplicity="1" />
+    <End Type="ExerciseGOModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TargetArea">
+        <PropertyRef Name="TargetAreaID" />
+      </Principal>
+      <Dependent Role="ActivityLog">
+        <PropertyRef Name="TargetAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_TargetArea">
+    <End Type="ExerciseGOModel.TargetArea" Role="TargetArea" Multiplicity="1" />
+    <End Type="ExerciseGOModel.Video" Role="Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TargetArea">
+        <PropertyRef Name="TargetAreaID" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="TargetAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

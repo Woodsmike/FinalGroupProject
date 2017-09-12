@@ -1,0 +1,66 @@
+﻿@model ExerciseGO.Models.ActivityLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ActivityLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LogDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalReps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalReps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalSets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetArea.TargetAreaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TargetArea.TargetAreaName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ActivityLogID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

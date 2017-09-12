@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34c21a0d01aa47b5aed11c109f73263b" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="ExerciseGOModel.Emoji" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExerciseGOModel.Game" Width="1.5" PointX="5.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExerciseGOModel.Stage" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExerciseGOModel.TargetArea" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExerciseGOModel.Video" Width="1.5" PointX="8.125" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExerciseGOModel.ActivityLog" Width="1.5" PointX="11.125" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="ExerciseGOModel.FK_Game_Stage" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ExerciseGOModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="ExerciseGOModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="ExerciseGOModel.AspNetUserLogin" Width="1.5" PointX="3.25" PointY="9.875" />
+        <EntityTypeShape EntityType="ExerciseGOModel.AspNetUser" Width="1.5" PointX="5.75" PointY="6.25" />
+        <AssociationConnector Association="ExerciseGOModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ExerciseGOModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ExerciseGOModel.AspNetUserRoles" />
+        <AssociationConnector Association="ExerciseGOModel.FK_ActivityLog_AspNetUsers" />
+        <AssociationConnector Association="ExerciseGOModel.FK_Game_AspNetUsers" />
+        <AssociationConnector Association="ExerciseGOModel.FK_Game_Emoji1" />
+        <AssociationConnector Association="ExerciseGOModel.FK_ActivityLog_TargetArea" />
+        <AssociationConnector Association="ExerciseGOModel.FK_Video_TargetArea" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
