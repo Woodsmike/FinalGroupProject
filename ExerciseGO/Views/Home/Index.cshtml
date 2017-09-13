@@ -1,37 +1,58 @@
+@model ExerciseGO.Models.HomeViewModel
 <div class="parallax">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <h1 style="font-family: 'Permanent Marker', cursive; color:ghostwhite;padding-top:400px;padding-right:20px;font-size:70px;">ExerciseGO</h1>
-</div>
-<div class="row dividerShadow" id="divider">
-    <h1 style="color:#20e278; font-family: 'Permanent Marker', cursive;">TARGET AREAS</h1>
+    <div id="introText">
+        <p>Watch Our Videos</p>
+        <p>Record Your Progress</p>
+        <p>Get Fit! Go!</p>
+    </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+
+    }
+    else
+    {
+        <div class="row container">
+            <div class="col-md-2 col-md-offset-5">
+                <button id="showAll"><a href="~/Account/Login">Login</a></button>
+            </div>
+            <div class="col-md-2">
+                <button id="showAll"><a href="~/Account/Register">Register</a></button>
+            </div>
+        </div>
+    }
 </div>
 
-<div class="container-fluid" id="divContainer" style="margin-top:10px; ">
-    <div class="row" style="margin-left:70px; margin-top:.5px;">
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindow();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_legs2.jpg" style="width:390px;" />
+<div class="row dividerShadow" id="divider">
+    <h1 style="color:#36453a; background-color:ghostwhite; font-family: 'Raleway', sans-serif; font-weight:bold;">
+        TARGET AREAS
+    </h1>
+</div>
+
+<div class="container-fluid" id="divContainer">
+    <div class="row" style="margin-top:.5px;" onmouseenter="scrollDown()" onmouseleave="scrollUp()">
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindow();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_legs2.jpg" style="margin-left:1px;" />
             <h1 id="text">LEGS</h1>
         </div>
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindowOne();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_1arms.jpg" style="width:390px; margin-right:.5px;" />
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindowOne();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_1arms.jpg" style="margin-left:1px;" />
             <h1 id="text">ARMS</h1>
         </div>
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindowTwo();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_back.jpg" style="margin-left:.5px;" />
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindowTwo();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_back.jpg" style="margin-left:2px;" />
             <h1 id="text">BACK</h1>
         </div>
-    </div>
-    <div class="row" style="margin-left:70px; margin-top:.5px;">
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindowThree();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_chest.jpg" style="width:390px; " />
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindowThree();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_chest.jpg" style="margin-left:2px;" />
             <h1 id="text">CHEST</h1>
         </div>
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindowFour();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_abs.jpg" style="margin-right:.5px;" />
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindowFour();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_abs.jpg" style="margin-left:3px;" />
             <h1 id="text">ABS</h1>
         </div>
-        <div class="col-md-4 col-sm-12 divGrid" onclick="openWindowFive();">
-            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_cardio.jpg" style="margin-left:.5px;" />
+        <div class="col-md-2 col-sm-12 divGrid" onclick="openWindowFive();">
+            <img class="img-responsive picOpacity" src="~/Content/Image/rsz_cardio.jpg" style="margin-left:3px;" />
             <h1 id="text">CARDIO</h1>
         </div>
     </div>
@@ -39,35 +60,35 @@
 
 @*legs div*@
 <div class="container" id="legs">
+    <h1 class="h1Text">Legs</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: barbell assisted squats</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;font-family: 'Raleway', sans-serif; ">
+                        <h4>Exercise shown: Barbell Assisted Squats</h4> <p>Because of the use of the barbell, this is an intermediate exercise that does require caution.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindow();"></a>
-            <a href="~/Videos/Details/4" ><img class="img-responsive picPad picBorder" src="~/Content/Image/M Squats.png" /></a>
+            <a href="~/Videos/Details/4"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Squats.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: ski squat</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercise shown: Ski Squat</h4> <p>This is an excellent lower body excercise, with an emphasis on the glutes and hamstrings.</p>
                     </div>
                 </div>
             </div>
@@ -80,94 +101,95 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>This video shows how to use a weighted barbell to perform back squats, and the reverse lunge.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercises shown: Weighted Barbell Back Squats and Reverse Lunge</h4><p>The use of the barbell makes this is an intermediate level leg exercise that does require caution.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/3"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Squats.png" /></a>
+            <a href="~/Videos/Details/2"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Glutes.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>This video shows how to use a weighted barbell to perform back squats, and the reverse lunge.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercise shown: Stiff Leg Deadlifts</h4> <p>This exercise focuses on the glutes while also working the lower back.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/3"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Squats.png" /></a>
+            <a href="~/Videos/Details/1"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Glutes.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>This video shows how to use a weighted barbell to perform back squats, and the reverse lunge.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercises shown: Curtesy Lunge and Machine Assisted Cable Kick Backs</h4> <p>Both exercises focus on the hamstrings while also working the glutes. </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/3"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Squats.png" /></a>
+            <a href="~/Videos/Details/5"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Hamstrings.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#legsActivity">Legs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>This video shows how to use a weighted barbell to perform back squats, and the reverse lunge.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercise shown: Weight Assisted Hamstring Exercise</h4> <p>This exercise requires close attention to one's posture, as it uses weights to work both the hamstrings and lowerback.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/3"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Squats.png" /></a>
+            <a href="~/Videos/Details/6"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Hamstring.png" /></a>
         </div>
     </div>
 </div>
 
 @*arms div*@
+
 <div class="container" id="arms" style="display:none; margin-top: 10px;">
+    <h1 class="h1Text">Arms</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: perfect bicep curl.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;font-family: 'Raleway', sans-serif;">
+                        <h4>Exercise shown: Perfect Bicep Curl</h4> <p>This is a very popular exercise, and for good reason! It works the bicep, while also doing more minor work on both the pecs and back. Continual curls will make your biceps pop, while also working these other important areas of the body.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindowOne();"></a>
             <a href="~/Videos/Details/12"><img class="img-responsive picPad picBorder" src="~/Content/Image/menBicepScreenshot.jpg" /></a>
         </div>
     </div>
@@ -175,76 +197,77 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: perfect bicep curl.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Seated Hammer Curl</h4> <p>This altered curl allows for a longer pull to more thoroughly work the biceps.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/21"><img class="img-responsive picPad picBorder" src="~/Content/Image/bicepScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/21"><img class="img-responsive picPad picBorder" src="~/Content/Image/F Bicep.jpg" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: perfect bicep curl.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercise shown: Machine Assisted Rope Pushdowns</h4> <p>While focusing on the triceps this is also a great work out for the lats and upper back!</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/21"><img class="img-responsive picPad picBorder" src="~/Content/Image/bicepScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/14"><img class="img-responsive picPad picBorder" src="~/Content/Image/mensTricepScreenshot.jpg" /></a>
         </div>
     </div>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#armsActivity">Arms Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: perfect bicep curl.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercises shown: Tricep Dips and Bent-over Tricep Kick Backs</h4> <p>Proper posture is important to ensure the exercise is safe and effective.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/21"><img class="img-responsive picPad picBorder" src="~/Content/Image/bicepScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/22"><img class="img-responsive picPad picBorder" src="~/Content/Image/tricepScreenshot.jpg" /></a>
         </div>
     </div>
 </div>
 
 @*back div*@
+
 <div class="container" id="back" style="display:none; margin-top: 10px;">
+    <h1 class="h1Text">Back</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: lower back focused dumbbell lift.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Machine Fly and Incline Dumbbell Press</h4> <p>These are paired together, so that the machine fly prefatigues the chest and the dumbbell presses fully works your upper chest.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindowTwo();"></a>
             <a href="~/Videos/Details/18"><img class="img-responsive picPad picBorder" src="~/Content/Image/mensBackScreenshot.jpg" /></a>
         </div>
     </div>
@@ -252,12 +275,12 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: bent-over-row, bent-over-wide-row, single arm front lat cable pull, and the side lat cable pull down.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Bent-over-row, Bent-over-wide-row, Single Arm Front Lat Cable Pull, and the Side Lat Cable Pull Down</h4> <p>These exercises in combination provide a complete workout for the deltoid muscles, upper back and the lats.</p>
                     </div>
                 </div>
             </div>
@@ -270,58 +293,57 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: bent-over-row, bent-over-wide-row, single arm front lat cable pull, and the side lat cable pull down.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left;">
+                        <h4>Exercises shown: Low-horizontal Pull-ups, Bent-over Rows, and Planking Rows</h4><p>This set of work outs provides a full back workout and a good warm up for your arms.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/25"><img class="img-responsive picPad picBorder" src="~/Content/Image/backScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/26"><img class="img-responsive picPad picBorder" src="~/Content/Image/backScreenshot.jpg" /></a>
         </div>
     </div>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
+                    <div class="row" style="margin-top: 40px; text-align:left;">
                         <h4>Exercises shown: bent-over-row, bent-over-wide-row, single arm front lat cable pull, and the side lat cable pull down.</h4>
                     </div>
                 </div>
             </div>
+        </div><div class="col-md-5">
+            <a href="~/Videos/Details/26"><img class="img-responsive picPad picBorder" src="~/Content/Image/bonusBackScreenshot.jpg" /></a>
         </div>
-    </div>
-    <div class="col-md-5">
-        <a href="~/Videos/Details/25"><img class="img-responsive picPad picBorder" src="~/Content/Image/backScreenshot.jpg" /></a>
     </div>
 </div>
 
 @*chest div*@
 <div class="container" id="chest" style="display:none; margin-top: 10px;">
+    <h1 class="h1Text">Chest</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#chestActivity">Chest Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#chestActivity">Chest Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercise shown: inclined dumbbell press.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercise shown: Inclined Dumbbell Press and Dips</h4><p>Dips provide a good full chest stretch while working the lower pecs, and the inclined press works the upper pecs</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindowThree();"></a>
             <a href="~/Videos/Details/16"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Chest.png" /></a>
         </div>
     </div>
@@ -329,12 +351,12 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#backActivity">Back Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Inclined Dumbbell Press, Bench Press, Inclined Bench Press, and Machine Assisted Cable-fly</h4><p>These four exercises paired together provide a thorough chest work out, and a good warm up for your arms and upper back.</p>
                     </div>
                 </div>
             </div>
@@ -346,23 +368,24 @@
 </div>
 
 @*abs div*@
+
 <div class="container" id="abs" style="display:none; margin-top: 10px;">
+    <h1 class="h1Text">Abs</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Weighted Leg Lifts</h4><p>This video also gives general tips for working out the core.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindowFour();"></a>
             <a href="~/Videos/Details/15"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Abs.png" /></a>
         </div>
     </div>
@@ -370,12 +393,12 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercise shown: Hanging Leg Raises</h4><p>While providing a full core stretch and workout this also lightly works your arms and quads.</p>
                     </div>
                 </div>
             </div>
@@ -388,95 +411,78 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>Exercises shown: Elevated Mountain Climbers and Elevated Short-term Planks</h4><p>This is a more advanced work out that requires both coordination and prior core work.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/24"><img class="img-responsive picPad picBorder" src="~/Content/Image/chestScreenshot.jpg" /></a>
-        </div>
-    </div>
-    <div class="row popUpDiv ">
-        <div class="col-md-7">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#absActivity">Abs Activity History</a></div>
-                </div>
-                <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <a href="~/Videos/Details/24"><img class="img-responsive picPad picBorder" src="~/Content/Image/chestScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/20"><img class="img-responsive picPad picBorder" src="~/Content/Image/abBonusScreenshot.jpg" /></a>
         </div>
     </div>
 </div>
 
 @*Cardio div*@
+
 <div class="container" id="cardio" style="display:none; margin-top: 10px;">
+    <h1 class="h1Text">Cardio</h1>
     <div class="row popUpDiv ">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>This more lengthy video shows the safe, correct way to use a treadmill.</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="#" class="arrow" style="float:right;" onclick="closeWindowFive();"></a>
-            <a href="~/Videos/Details/9"><img class="img-responsive picPad picBorder" src="~/Content/Image/M Abs.png" /></a>
+            <a href="~/Videos/Details/9"><img class="img-responsive picPad picBorder" src="~/Content/Image/Treadmill.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family: 'Raleway', sans-serif;">
+                        <h4>This more lengthy video shows several different methods one can use on an automated stepping machine.</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/10"><img class="img-responsive picPad picBorder" src="~/Content/Image/abScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/10"><img class="img-responsive picPad picBorder" src="~/Content/Image/Step Machine.png" /></a>
         </div>
     </div>
     <div class="row popUpDiv">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="row topBtnPos"><a class="btnColor">Record Activity</a></div>
-                    <div class="row bottomBtnPos"><a class="btnColor" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
+                    <div class="row topBtnPos"><a id="showAll" href="~/ActivityLogs/Create">Record Activity</a></div>
+                    <div class="row bottomBtnPos"><a id="showAll" href="~/ActivityLogs/Index?#cardioActivity">Cardio Activity History</a></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row" style="margin-top: 100px; text-align:left;">
-                        <h4>Exercises shown: inclined dumbell press, the typical bench press, inclined bench press, and machine assisted cable-fly.</h4>
+                    <div class="row" style="margin-top: 40px; text-align:left; font-family:'Raleway', sans-serif;">
+                        <h4>This lengthy, informative video gives tips on how to properly use a rowing machine</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
-            <a href="~/Videos/Details/10"><img class="img-responsive picPad picBorder" src="~/Content/Image/abScreenshot.jpg" /></a>
+            <a href="~/Videos/Details/11"><img class="img-responsive picPad picBorder" src="~/Content/Image/Row Machine.png" /></a>
         </div>
     </div>
 </div>

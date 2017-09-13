@@ -294,6 +294,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Image\default.png" />
+    <Content Include="Content\Image\F Bicep.jpg" />
+    <Content Include="Content\Image\gym1.JPG" />
+    <Content Include="Content\Image\gym2.jpg" />
+    <Content Include="Content\Image\gym3.jpg" />
     <Content Include="Content\Image\loginPage.jpg" />
     <Content Include="Content\Image\default.png" />
     <Content Include="Content\Image\loginPage.jpg" />
@@ -308,6 +312,7 @@
     <Content Include="Content\Image\F Glutes.png" />
     <Content Include="Content\Image\F Hamstrings.png" />
     <Content Include="Content\Image\F Squats.png" />
+    <Content Include="Content\Image\loginpage_720.jpg" />
     <Content Include="Content\Image\Logo With Text.png" />
     <Content Include="Content\Image\Minimized Logo.png" />
     <Content Include="Content\Image\M Abs.png" />
@@ -334,6 +339,7 @@
     <Content Include="Content\Image\Step Machine.png" />
     <Content Include="Content\Image\Treadmill.png" />
     <Content Include="Content\Image\tricepScreenshot.jpg" />
+    <Content Include="Content\Image\VideoBackgroundTwo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

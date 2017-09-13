@@ -2,12 +2,11 @@
 @model RegisterViewModel
 
 <div class="text-center" id="loginPage">
-    <div class="logo"></div>
     <!-- Main Form -->
     <div class="box">
-        <h1>Register or <a href="/Account/Login">Login</a></h1>
+        <h1 id="loginHeading">Register or <a href="/Account/Login">Login</a></h1>
         <div class="row">
-            <hr style="margin-top:0px;" />
+            <hr />
             <div class="col-md-6 col-md-offset-1">
                 <section id="loginForm">
                     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -30,7 +29,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-3" >
+                            <div class="col-md-3">
                                 <input type="submit" class="btn btn-default" id="loginButton" value="Register" />
                             </div>
                         </div>
@@ -44,7 +43,6 @@
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -1,4 +1,5 @@
-﻿var map;
+﻿//Populate map
+var map;
 var infowindow;
 
 function initMap() {
@@ -56,7 +57,8 @@ function openWindow() {
         x.style.display = 'block';
     }
 }
-//this function legs div
+
+//display legs div
 function closeWindow() {
     var x = document.getElementById('legs');
     if (x.style.display === 'none') {
@@ -238,6 +240,8 @@ function closeWindowFive() {
         x.style.display = 'block';
     }
 }
+
+
 //UPPERCASE ids of Arms, Legs, etc. is for the Activity log page....lowercase for home page
 function openArmsDiv() {
 
@@ -302,3 +306,68 @@ function openFilterDiv() {
         x.style.display = 'block';
     }
 }
+function divSwitch() {
+
+    var x = document.getElementById('legs');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+    x = document.getElementById('divContainer');
+    if (x.style.display === 'none') {
+        x.style.display = 'Block';
+    }
+    x = document.getElementById('arms');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+    x = document.getElementById('back');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+    x = document.getElementById('chest');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+    x = document.getElementById('abs');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+    x = document.getElementById('cardio');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    }
+}
+
+
+
+function openAllActivityDivs() {
+    document.getElementById('Arms').click();
+    document.getElementById('Back').click();
+    document.getElementById('Cardio').click();
+    document.getElementById('Chest').click();
+    document.getElementById('Legs').click();
+    document.getElementById('Abs').click();
+}
+
+function selectDiv() {
+    var x = window.location.href;
+    if (x.includes('armsActivity')) {
+        document.getElementById('Arms').click();
+    }
+    else if (x.includes('chestActivity')) {
+        document.getElementById('Chest').click();
+    }
+    else if (x.includes('backActivity')) {
+        document.getElementById('Back').click();
+    }
+    else if (x.includes('legsActivity')) {
+        document.getElementById('Legs').click();
+    }
+    else if (x.includes('absActivity')) {
+        document.getElementById('Abs').click();
+    }
+    else if (x.includes('cardioActivity')) {
+        document.getElementById('Cardio').click();
+    }
+}
+

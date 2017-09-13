@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>Exercise GO!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABcoSsibpI8dQfUsSjdbQrpm6d0VnIH5w&libraries=places&callback=initMap" async defer></script>
@@ -10,43 +11,48 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
-<body>
-    <nav class="navbar navbar-fixed-top" style="margin:0px; background-color:#ffffff;">
+<body onpageshow="selectDiv()">
+    <nav class="navbar navbar-fixed-top" id="navbarStyle">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"></button>
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </div>
+
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <a class="navbar-brand active" href="~/Home/Index"><img src="~/Content/Image/newLogo.png" /></a>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="mapGym"><a href="~/Home/About">Gym Locations</a></li>
-                    <li>@Html.Partial("_LoginPartial")</li>
                     <li>
-                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse1" aria-expanded="false" aria-controls="nav-collapse1">Activity Log</a>
+                        <a href="~/Home/Index#divContainer" onclick="divSwitch()" aria-haspopup="true" aria-expanded="false">
+                            Target Areas
+                        </a>
                     </li>
+                    <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
-                <ul class="collapse nav navbar-nav nav-collapse" id="nav-collapse1" style="">
-                    <li><a href="~/ActivityLogs/Index?#cardioActivity">Cardio</a></li>
-                    <li><a href="~/ActivityLogs/Index?#backActivity">Back</a></li>
-                    <li><a href="~/ActivityLogs/Index?#chestActivity">Chest</a></li>
-                    <li><a href="~/ActivityLogs/Index?#absActivity">Abs</a></li>
-                    <li><a href="~/ActivityLogs/Index?#legsActivity">Legs</a></li>
-                    <li><a href="~/ActivityLogs/Index?#arms">Arms</a></li>
-
-                </ul>
+                <div class="btn-group">
+                    <button id="activityLogBtn" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Activity Log
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/ActivityLogs/Index#legsActivitys">Legs</a></li>
+                        <li><a href="~/ActivityLogs/Index#armsActivity">Arms</a></li>
+                        <li><a href="~/ActivityLogs/Index#backActivity">Back</a></li>
+                        <li><a href="~/ActivityLogs/Index#chestActivity">Chest</a></li>
+                        <li><a href="~/ActivityLogs/Index#absActivity">Abs</a></li>
+                        <li><a href="~/ActivityLogs/Index#cardioActivity">Cardio</a></li>
+                    </ul>
+                </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
-
     @RenderBody()
 
-    <footer>
-        <p>&copy; @DateTime.Now.Year - ExerciseGo Web Application</p>
+    <footer style="text-align:center; color:white;">
+        2017-ExerciseGO!
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

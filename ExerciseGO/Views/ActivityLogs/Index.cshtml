@@ -1,210 +1,217 @@
 ﻿@model IEnumerable<ExerciseGO.Models.ActivityLog>
+<div class="outer2">
+    <div class="container thumbnail">
+        <h1 id="activityHeading">Select Activity Log</h1>
 
-<h1 style="margin-top:5%; text-align:center;">Activity Log</h1>
+        @*Filter*@
+        <div class="container">
+            <button id="showAll" class="pull-right" onclick="openAllActivityDivs()">Show All</button>
+            <button id="Arms" class="showAll" onclick="openArmsDiv()">Arms</button>
+            <button id="Back" class="showAll" onclick="openBackDiv()">Back</button>
+            <button id="Chest" class="showAll" onclick="openChestDiv()">Chest</button>
+            <button id="Abs" class="showAll" onclick="openAbsDiv()">Abs</button>
+            <button id="Legs" class="showAll" onclick="openLegsDiv()">Legs</button>
+            <button id="Cardio" class="showAll" onclick="openCardioDiv()">Cardio</button>
+        </div>
 
-@*Filter*@
-<div style="text-align:center">
-    <h6>Filter by: <button style="padding-left:15px; border:none; background-color:none; background:none;" class="glyphicon glyphicon-chevron-down" onclick="openFilterDiv();"></button></h6>
-    <div id="filter" style="text-align:left; padding-left:30px; width:200px; display:none;" class="thumbnail container" >
-        <p><input id="Arms" type="checkbox" onclick="openArmsDiv()"> <label for="Arms">Arms</label></p>
-        <p><input id="Back" type="checkbox" onclick="openBackDiv()"> <label for="Back">Back</label></p>
-        <p><input id="Chest" type="checkbox" onclick="openChestDiv()"> <label for="Chest">Chest</label></p>
-        <p><input id="Abs" type="checkbox" onclick="openAbsDiv()"> <label for="Abs">Abs</label></p>
-        <p><input id="Legs" type="checkbox" onclick="openLegsDiv()"> <label for="Legs">Legs</label></p>
-        <p><input id="Cardio" type="checkbox" onclick="openCardioDiv()"> <label for="Cardio">Cardio</label></p>
-    </div>
-</div>
-
-@*Activity log sections*@
-<div id="armsActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Arms:</h3>
-        @foreach (var arms in Model)
-        {
-            if (@Html.DisplayFor(modelItem => arms.TargetArea.TargetAreaName).ToString() == "Arms")
-            {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => arms.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => arms.LogDate)</p>
+        <div class="container">
+            @*Activity log sections*@
+            <div id="armsActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Arms:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var arms in Model)
+                    {
+                        if (@Html.DisplayFor(modelItem => arms.TargetArea.TargetAreaName).ToString() == "Arms")
+                        {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => arms.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => arms.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => arms.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => arms.TotalSets)</p>
+                                        </div>
+                                        <div id="noteSection" class="col-md-6">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => arms.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => arms.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => arms.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
-    </div>
-</div>
-<br />
+            </div>
+            <br />
 
-<div id="backActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Back:</h3>
-        @foreach (var back in Model)
-        {
-            if (@Html.DisplayFor(modelItem => back.TargetArea.TargetAreaName).ToString() == "Back")
+            <div id="backActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Back:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var back in Model)
             {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => back.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => back.LogDate)</p>
+                if (@Html.DisplayFor(modelItem => back.TargetArea.TargetAreaName).ToString() == "Back")
+                {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => back.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => back.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => back.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => back.TotalSets)</p>
+                                        </div>
+                                        <div class="col-md-6" id="noteSection">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => back.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => back.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => back.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
-    </div>
-</div>
-<br />
+            </div>
+            <br />
 
-<div id="chestActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Chest:</h3>
-        @foreach (var chest in Model)
-        {
-            if (@Html.DisplayFor(modelItem => chest.TargetArea.TargetAreaName).ToString() == "Chest")
+            <div id="chestActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Chest:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var chest in Model)
             {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => chest.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => chest.LogDate)</p>
+                if (@Html.DisplayFor(modelItem => chest.TargetArea.TargetAreaName).ToString() == "Chest")
+                {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => chest.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => chest.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => chest.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => chest.TotalSets)</p>
+                                        </div>
+                                        <div class="col-md-6" id="noteSection">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => chest.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => chest.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => chest.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
-    </div>
-</div>
-<br />
+            </div>
+            <br />
 
-<div id="absActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Abs:</h3>
-        @foreach (var abs in Model)
-        {
-            if (@Html.DisplayFor(modelItem => abs.TargetArea.TargetAreaName).ToString() == "Abs")
+            <div id="absActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Abs:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var abs in Model)
             {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => abs.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => abs.LogDate)</p>
+                if (@Html.DisplayFor(modelItem => abs.TargetArea.TargetAreaName).ToString() == "Abs")
+                {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => abs.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => abs.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => abs.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => abs.TotalSets)</p>
+                                        </div>
+                                        <div class="col-md-6" id="noteSection">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => abs.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => abs.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => abs.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
-    </div>
-</div>
-<br />
+            </div>
+            <br />
 
-<div id="legsActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Legs:</h3>
-        @foreach (var legs in Model)
-        {
-            if (@Html.DisplayFor(modelItem => legs.TargetArea.TargetAreaName).ToString() == "Legs")
+            <div id="legsActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Legs:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var legs in Model)
             {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => legs.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => legs.LogDate)</p>
+                if (@Html.DisplayFor(modelItem => legs.TargetArea.TargetAreaName).ToString() == "Legs")
+                {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => legs.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => legs.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => legs.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => legs.TotalSets)</p>
+                                        </div>
+                                        <div class="col-md-6" id="noteSection">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => legs.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => legs.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => legs.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
-    </div>
-</div>
-<br />
+            </div>
+            <br />
 
-<div id="cardioActivity" class="container thumbnail row" style="margin:auto;">
-    <div class="container">
-        <h3>Cardio:</h3>
-        @foreach (var cardio in Model)
-        {
-            if (@Html.DisplayFor(modelItem => cardio.TargetArea.TargetAreaName).ToString() == "Cardio")
+            <div id="cardioActivity" class="container thumbnail row">
+                <div class="container">
+                    <h3>Cardio:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    @foreach (var cardio in Model)
             {
-                <div id="post" class="container thumbnail col-md-5">
-                    <div style="padding:6px;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>Reps: @Html.DisplayFor(modelItem => cardio.TotalReps)</p>
-                                <div class="row">
-                                    <p class="container" style="">@Html.DisplayFor(modelItem => cardio.LogDate)</p>
+                if (@Html.DisplayFor(modelItem => cardio.TargetArea.TargetAreaName).ToString() == "Cardio")
+                {
+                            <div id="post" class="container thumbnail col-md-5">
+                                <div>
+                                    <div class="row">
+                                        <p class="container col-md-offset-10 col-md-1"><a href="~/ActivityLogs/Delete/@Html.DisplayFor(model => cardio.ActivityLogID)">Delete</a></p>
+                                        <div class="col-md-3">
+                                            <p>Reps: @Html.DisplayFor(modelItem => cardio.TotalReps)</p>
+                                            <div class="row">
+                                                <p class="container">@Html.DisplayFor(modelItem => cardio.LogDate)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Sets: @Html.DisplayFor(modelItem => cardio.TotalSets)</p>
+                                        </div>
+                                        <div class="col-md-6" id="noteSection">
+                                            <p>Notes:</p>
+                                            <p>@Html.DisplayFor(modelItem => cardio.Notes)</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <p>Sets: @Html.DisplayFor(modelItem => cardio.TotalSets)</p>
-                            </div>
-                            <div class="col-md-6" style="border-left:dashed 0.5px; border-color:#DDDDDD">
-                                <p>Notes:</p>
-                                <p>@Html.DisplayFor(modelItem => cardio.Notes)</p>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
-            }
-        }
+            </div>
+        </div>
     </div>
 </div>
-<br />

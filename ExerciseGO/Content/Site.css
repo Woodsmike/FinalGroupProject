@@ -10,57 +10,91 @@ textarea {
     font-family: 'Roboto', sans-serif;
 }
 
-
-/*maps*/
-#map {
-    margin-top: 5%;
-    height: 550px;
+html,
+body {
+    background: #949292;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
 }
 
-/*landing page main picture*/
+a {
+    color: #aaaaaa;
+    transition: all ease-in-out 200ms;
+}
+
+    a:hover {
+        color: #8EBB61;
+        text-decoration: none;
+    }
+
+/*Gym Locations*/
+#map {
+    margin-top: 1%;
+    height: 400px;
+}
+
+/*Main Landing Page Picture*/
 .parallax {
     background-image: url('Image/rsz_1backgroundpicture.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    height: 550px;
+    height: 525px;
     text-align: center;
 }
 
-/*divider bar from main picture and grids*/
+#introText {
+    color: ghostwhite;
+    padding-top: 225px;
+    padding-right: 25px;
+    font-weight: bold;
+    font-size: 36px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Landing Page Divider Bar*/
 #divider {
     text-align: center;
-    background-color: #fff;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    background-color: ghostwhite;
+    padding-top: 2px;
+    padding-bottom: 7px;
     font-family: 'Montserrat', sans-serif;
     color: slategray;
-    box-shadow: 2px 2px 2px gray;
-    /*max-width: 1388.36px;*/
     margin: 0px;
 }
 
-.dividerShadow {
-    border: solid;
-    border-color: #ffffff;
-    background-color: lightgray;
-    box-shadow: 0 2px 0 2px #323F48;
-    margin-top: 0px;
-    border-top: 0px;
-}
-/*login page*/
+/*Login Page*/
 #loginPage {
     background-image: url('Image/bigstock-collage-of-sport-photos-with-p-150968885.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
-    height: 91%;
+    height: 100%;
+    padding-top: 180px;
+    padding-bottom: 180px;
 }
 
-/*navbar!!*/
+    #loginPage > div.box {
+        width: 615px;
+        height: 300px;
+        margin: auto;
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
 
+#loginHeading {
+    margin-top: 5%;
+    text-align: center;
+    color: #8EBB61;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/*navbar*/
 .navbar-brand {
     text-align: justify;
     margin-top: 0px;
@@ -68,11 +102,21 @@ textarea {
     padding-top: 0px;
 }
 
+body > nav {
+    box-shadow: .5px .5px 5px #888888;
+}
+
 .navbar-nav.navbar-right .btn {
     position: relative;
     z-index: 2;
     padding: 4px 20px;
     margin: 10px auto;
+}
+
+#navbarStyle {
+    margin: 0px;
+    padding-bottom: 2px;
+    background-color: ghostwhite;
 }
 
 .navbar .navbar-collapse {
@@ -113,8 +157,21 @@ textarea {
     float: right;
 }
 
+.btn-group {
+    float: right;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: transparent;
+}
+
+    .btn-group:hover {
+        background-color: #efefef;
+    }
+
 .btn.btn-circle {
-    border-radius: 50px;
+    background-color: transparent;
 }
 
 .btn.btn-outline {
@@ -141,37 +198,7 @@ textarea {
     }
 }
 
-/*login page*/
-/*=== 1. General Structure ===*/
-html,
-body {
-    background: #efefef;
-    max-width: 100%;
-    overflow-x: hidden;
-    font-family: 'Raleway', sans-serif;
-}
-
-a {
-    color: #aaaaaa;
-    transition: all ease-in-out 200ms;
-}
-
-    a:hover {
-        color: #333333;
-        text-decoration: none;
-    }
-
-/*=== 9. Misc ===*/
-.logo {
-    padding: 15px 0;
-    font-size: 25px;
-    color: #aaaaaa;
-    font-weight: bold;
-    background-image: url('Image/Minimized Logo.png');
-    cursor: pointer;
-}
-
-/*used to close target area divs*/
+/*Home target area divs hide/show*/
 .arrow {
     float: right;
     color: white;
@@ -190,6 +217,7 @@ a {
         content: "x";
     }
 
+/*Social Login*/
 #socialLoginList {
     text-align: center;
     color: black;
@@ -250,74 +278,66 @@ span.buttonText {
         background: #FF0000;
     }
 
-span.label {
-    font-family: serif;
-    font-weight: normal;
-}
-
-span.icon {
-    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    width: 42px;
-    height: 42px;
-}
-
-span.buttonText {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 42px;
-    padding-right: 42px;
-    font-size: 14px;
-}
-
-#loginPage > div.box {
-    width: 615px;
-    height: 300px;
-    margin: auto;
-    margin-top: 10%;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-}
-
 div.form-group {
     text-align: left;
 }
 
-#loginButton {
+#showAll {
     display: inline-block;
-    background: #E2E0E1;
+    background: #99C968;
     color: #ffffff;
-    width: 80px;
+    width: 140px;
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 1px darkgray;
     white-space: nowrap;
     display: inline-block;
     vertical-align: middle;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+
+    #showAll > a {
+        color: #ffffff;
+    }
+
+.showAll {
+    display: inline-block;
+    background: #99C968;
+    color: #ffffff;
+    width: 140px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px darkgray;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+
+#showAll:hover {
+    cursor: pointer;
+    background: #3A7A22;
+}
+
+#loginButton {
+    display: inline-block;
+    background: #99C968;
+    color: #ffffff;
+    width: 80px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px darkgray;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
     #loginButton:hover {
         cursor: pointer;
-        background: #7F7D76;
+        background: #3A7A22;
+        cursor: pointer;
     }
-
-span.label {
-    font-family: serif;
-    font-weight: normal;
-}
-
-span.icon {
-    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    width: 42px;
-    height: 42px;
-}
-
-#loginButton:hover {
-    cursor: pointer;
-}
 
 .etc-login-form {
     margin-left: 1px;
@@ -328,14 +348,14 @@ span.icon {
 }
 
 #text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
     position: absolute;
-    left: 50px;
-    top: 175px;
-    width: 70%;
+    top: 160px;
+    width: 100%;
     color: white;
     text-align: center;
-    font-size: 35px;
-    /*opacity:.7;*/
+    font-size: 27px;
 }
 
 #textPic {
@@ -345,20 +365,15 @@ span.icon {
     width: 70%;
     color: black;
     text-align: center;
-    font-size: 35px;
-    /*opacity:.7;*/
+    font-size: 20px;
 }
+
 /*Home page divs hidden shown*/
 .popUpDiv {
-    border: solid 0.5px;
-    border-color: black;
+    border: solid 0.02px;
+    border-color: #d1cccc;
     background-color: white;
     box-shadow: 2px 2px 2px darkgray;
-    /*background: gray; 
-    background: -webkit-linear-gradient(left, white, gray); 
-    background: -o-linear-gradient(right, white, gray); 
-    background: -moz-linear-gradient(right, white, gray); 
-    background: linear-gradient(to right, white, gray); */
     opacity: .8;
     margin: 0;
     margin-bottom: 10px;
@@ -367,12 +382,13 @@ span.icon {
 .divGrid {
     padding-left: 0px;
     padding-right: 0px;
-    width: 390px;
+    width: 224px;
     border: thin;
     border-color: azure;
     margin: .25px;
     margin-bottom: 0;
     cursor: pointer;
+    width: 224px;
 }
 
 #legs {
@@ -411,12 +427,12 @@ span.icon {
     padding: 0;
 }
 
-
 .picPad {
     margin: 20px;
     margin-left: 0;
     max-height: 228.61px;
-    
+    width: 412px;
+    height: 229px;
 }
 
     .picPad:hover {
@@ -424,12 +440,14 @@ span.icon {
     }
 
 .picBorder {
-    border: solid;
-    border-color: black;
+    border: solid 0.02px;
+    border-color: #d1cccc;
 }
+
 .picOpacity:hover {
     opacity: 0.8;
 }
+
 .topBtnPos {
     margin-top: 90px;
     padding-left: 50px;
@@ -455,35 +473,85 @@ span.icon {
         outline: 0;
     }
 
-/*Activity log page hide show*/
+/*Activity log*/
+#activityLogBtn {
+    color: #aaaaaa;
+    background-color: none;
+    border: none;
+    background: none;
+}
+
+    #activityLogBtn:hover {
+        color: #8EBB61;
+        background-color: none;
+        border: none;
+        background: none;
+    }
+
+    #activityLogBtn::selection {
+        color: #8EBB61;
+        background-color: none;
+        border: none;
+        background: none;
+    }
+
+#activityHeading {
+    margin-top: 7%;
+    color: #8EBB61;
+    text-align: center;
+}
+
+#createActivity {
+    width: 650px;
+    margin-top: 7%;
+}
+
 #armsActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #chestActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #absActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #backActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #legsActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #cardioActivity {
     display: none;
     box-shadow: 1px 1px 1px darkgray;
+    margin: auto;
+    width: 97%;
+    margin: auto;
 }
 
 #post {
@@ -492,4 +560,70 @@ span.icon {
     border: none;
     box-shadow: 1px 1px 1px #DDDDDD;
 }
-/*UPPERCASE ids of Arms, Legs, etc. is for the Activity log page....lowercase for home page*/
+
+#noteSection {
+    border-left: dashed 0.5px;
+    border-color: #DDDDDD;
+}
+
+#addNewActivity {
+    padding-left: 75%;
+}
+
+/*Video Detail*/
+#videoTitle {
+    color: ghostwhite;
+}
+
+#videoThumbnail {
+    box-shadow: 2px 2px #9A9A9A;
+    width: 660px;
+    height: 380px;
+}
+
+.h1Text {
+    font-family: 'Raleway', sans-serif;
+    color: ghostwhite;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.outer {
+    background-image: url('Image/gym2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    height: 637px;
+    padding-top: 115px;
+    overflow-x: hidden;
+}
+
+.inner {
+    width: 640px;
+    height: 360px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.divContainer {
+    margin-top: 10px;
+}
+
+.outer2 {
+    background-image: url('Image/gym2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    height: 637px;
+    overflow-x: hidden;
+}
+
+hr {
+    margin-top: 0px;
+    width: 80%;
+}
