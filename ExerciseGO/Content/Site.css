@@ -51,8 +51,7 @@ a {
     padding-right: 25px;
     font-weight: bold;
     font-size: 36px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
+    font-family: 'Raleway', sans-serif;    
     text-align: center;
 }
 
@@ -64,7 +63,7 @@ a {
     padding-bottom: 7px;
     font-family: 'Montserrat', sans-serif;
     color: slategray;
-    margin: 0px;
+    margin: 0;
 }
 
 /*Login Page*/
@@ -78,7 +77,7 @@ a {
     padding-bottom: 180px;
 }
 
-    #loginPage > div.box {
+    #loginPage > .box {
         width: 615px;
         height: 300px;
         margin: auto;
@@ -89,17 +88,16 @@ a {
 #loginHeading {
     margin-top: 5%;
     text-align: center;
-    color: #8EBB61;
-    text-align: center;
+    color: #8EBB61;    
     padding-top: 10px;
 }
 
 /*navbar*/
 .navbar-brand {
     text-align: justify;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
 }
 
 body > nav {
@@ -114,7 +112,7 @@ body > nav {
 }
 
 #navbarStyle {
-    margin: 0px;
+    margin: 0;
     padding-bottom: 2px;
     background-color: ghostwhite;
 }
@@ -159,10 +157,7 @@ body > nav {
 
 .btn-group {
     float: right;
-    padding-top: 8px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 8px 15px 10px;    
     background-color: transparent;
 }
 
@@ -198,24 +193,6 @@ body > nav {
     }
 }
 
-/*Home target area divs hide/show*/
-.arrow {
-    float: right;
-    color: white;
-    border: 1px solid #AEAEAE;
-    border-radius: 30px;
-    background-color: #605F61;
-    font-size: 25px;
-    font-weight: bold;
-    display: inline-block;
-    line-height: 0px;
-    padding: 8px 3px;
-    text-decoration: none;
-}
-
-    .arrow:before {
-        content: "x";
-    }
 
 /*Social Login*/
 #socialLoginList {
@@ -241,12 +218,12 @@ body > nav {
         background: #4267B2;
     }
 
-span.label {
+.label {
     font-family: serif;
     font-weight: normal;
 }
 
-span.icon {
+.icon {
     background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
     display: inline-block;
     vertical-align: middle;
@@ -254,7 +231,7 @@ span.icon {
     height: 42px;
 }
 
-span.buttonText {
+.buttonText {
     display: inline-block;
     vertical-align: middle;
     padding-left: 42px;
@@ -278,7 +255,7 @@ span.buttonText {
         background: #FF0000;
     }
 
-div.form-group {
+.form-group {
     text-align: left;
 }
 
@@ -290,16 +267,15 @@ div.form-group {
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 1px darkgray;
-    white-space: nowrap;
-    display: inline-block;
+    white-space: nowrap;   
     vertical-align: middle;
     padding: 7px;
     margin-bottom: 5px;
 }
 
-    #showAll > a {
-        color: #ffffff;
-    }
+#showAll > a {
+    color: #ffffff;
+}
 
 .showAll {
     display: inline-block;
@@ -309,17 +285,16 @@ div.form-group {
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 1px darkgray;
-    white-space: nowrap;
-    display: inline-block;
+    white-space: nowrap;   
     vertical-align: middle;
     padding: 7px;
     margin-bottom: 15px;
 }
 
-#showAll:hover {
-    cursor: pointer;
-    background: #3A7A22;
-}
+    .showAll:hover {
+        cursor: pointer;
+        background: #3A7A22;
+    }
 
 #loginButton {
     display: inline-block;
@@ -336,7 +311,6 @@ div.form-group {
     #loginButton:hover {
         cursor: pointer;
         background: #3A7A22;
-        cursor: pointer;
     }
 
 .etc-login-form {
@@ -380,15 +354,14 @@ div.form-group {
 }
 
 .divGrid {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     width: 224px;
     border: thin;
     border-color: azure;
     margin: .25px;
     margin-bottom: 0;
     cursor: pointer;
-    width: 224px;
 }
 
 #legs {
@@ -496,9 +469,10 @@ div.form-group {
     }
 
 #activityHeading {
-    margin-top: 7%;
+    margin-top: 3%;
     color: #8EBB61;
     text-align: center;
+    margin-bottom: 55px;
 }
 
 #createActivity {
@@ -511,7 +485,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #chestActivity {
@@ -519,7 +492,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #absActivity {
@@ -527,7 +499,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #backActivity {
@@ -535,7 +506,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #legsActivity {
@@ -543,7 +513,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #cardioActivity {
@@ -551,7 +520,6 @@ div.form-group {
     box-shadow: 1px 1px 1px darkgray;
     margin: auto;
     width: 97%;
-    margin: auto;
 }
 
 #post {
@@ -566,8 +534,11 @@ div.form-group {
     border-color: #DDDDDD;
 }
 
-#addNewActivity {
-    padding-left: 75%;
+.addNewActivity {
+    float: right;
+    padding-top: 0;
+    padding-right: 75px;
+   
 }
 
 /*Video Detail*/
@@ -624,6 +595,6 @@ div.form-group {
 }
 
 hr {
-    margin-top: 0px;
+    margin-top: 0;
     width: 80%;
 }

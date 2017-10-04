@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<ExerciseGO.Models.ActivityLog>
-<div class="outer2">
+<div class="outer2" style="padding-top: 95px">
     <div class="container thumbnail">
         <h1 id="activityHeading">Select Activity Log</h1>
 
@@ -14,11 +14,11 @@
             <button id="Cardio" class="showAll" onclick="openCardioDiv()">Cardio</button>
         </div>
 
-        <div class="container">
+        <div class="container" style="margin-top: 20px;">
             @*Activity log sections*@
             <div id="armsActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Arms:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Arms:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var arms in Model)
                     {
                         if (@Html.DisplayFor(modelItem => arms.TargetArea.TargetAreaName).ToString() == "Arms")
@@ -51,7 +51,7 @@
 
             <div id="backActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Back:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Back:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var back in Model)
             {
                 if (@Html.DisplayFor(modelItem => back.TargetArea.TargetAreaName).ToString() == "Back")
@@ -84,7 +84,7 @@
 
             <div id="chestActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Chest:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Chest:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var chest in Model)
             {
                 if (@Html.DisplayFor(modelItem => chest.TargetArea.TargetAreaName).ToString() == "Chest")
@@ -117,7 +117,7 @@
 
             <div id="absActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Abs:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Abs:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var abs in Model)
             {
                 if (@Html.DisplayFor(modelItem => abs.TargetArea.TargetAreaName).ToString() == "Abs")
@@ -150,7 +150,7 @@
 
             <div id="legsActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Legs:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Legs:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var legs in Model)
             {
                 if (@Html.DisplayFor(modelItem => legs.TargetArea.TargetAreaName).ToString() == "Legs")
@@ -183,7 +183,7 @@
 
             <div id="cardioActivity" class="container thumbnail row">
                 <div class="container">
-                    <h3>Cardio:<a id="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
+                    <h3>Cardio:<a class="addNewActivity" href="~/ActivityLogs/Create">&#43; Add new</a></h3>
                     @foreach (var cardio in Model)
             {
                 if (@Html.DisplayFor(modelItem => cardio.TargetArea.TargetAreaName).ToString() == "Cardio")

@@ -144,7 +144,6 @@ C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\obj\Debug\ExerciseGO.csprojResolveAssemblyReference.cache
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\obj\Debug\ExerciseGO.csproj.CoreCompileInputs.cache
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\obj\Debug\ExerciseGO.dll
 C:\Users\mgwwl\Documents\Visual Studio 2017\Projects\ExerciseGO - Final Project\ExerciseGO\obj\Debug\ExerciseGO.pdb

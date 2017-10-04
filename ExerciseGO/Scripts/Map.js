@@ -341,12 +341,12 @@ function divSwitch() {
 
 
 function openAllActivityDivs() {
-    document.getElementById('Arms').click();
-    document.getElementById('Back').click();
-    document.getElementById('Cardio').click();
-    document.getElementById('Chest').click();
-    document.getElementById('Legs').click();
-    document.getElementById('Abs').click();
+    $("#armsActivity").show();
+    $("#legsActivity").show();
+    $("#absActivity").show();
+    $("#cardioActivity").show();
+    $("#backActivity").show();
+    $("#chestActivity").show();    
 }
 
 function selectDiv() {
@@ -354,20 +354,26 @@ function selectDiv() {
     if (x.includes('armsActivity')) {
         document.getElementById('Arms').click();
     }
-    else if (x.includes('chestActivity')) {
+    if (x.includes('chestActivity')) {
         document.getElementById('Chest').click();
     }
-    else if (x.includes('backActivity')) {
+    if (x.includes('backActivity')) {
         document.getElementById('Back').click();
     }
-    else if (x.includes('legsActivity')) {
+    if (x.includes('legsActivity')) {
         document.getElementById('Legs').click();
     }
-    else if (x.includes('absActivity')) {
+    if (x.includes('absActivity')) {
         document.getElementById('Abs').click();
     }
-    else if (x.includes('cardioActivity')) {
+    if (x.includes('cardioActivity')) {
         document.getElementById('Cardio').click();
     }
+}
+function login() {    
+        window.location.href = "https://localhost:44398/Account/Login";    
+}
+function register() {    
+        window.location.href = "https://localhost:44398/Account/Register";
 }
 
